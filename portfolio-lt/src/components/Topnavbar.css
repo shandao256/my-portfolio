@@ -1,0 +1,21 @@
+.navbar-wrapper {
+    width: 100%;
+}
+
+
+.navbar {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--border-bottom);
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 4rem;
+}
+
+.navbar p{
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+
