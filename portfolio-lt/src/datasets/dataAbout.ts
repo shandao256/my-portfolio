@@ -16,5 +16,5 @@ export const aboutData = {
     ],
     teams: [
         { label: "pep.digital GmbH", url: "https://pep-digital.de/" },
-    ]
+    ],
 }

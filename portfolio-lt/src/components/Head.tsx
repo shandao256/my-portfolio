@@ -1,7 +1,7 @@
 import './Head.css'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { aboutData } from '../datasets/data.ts'
+import { aboutData } from '../datasets/dataAbout.ts'
 
 function Head() {
     const { lat, lng } = aboutData.coordinates
