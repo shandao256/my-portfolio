@@ -1,12 +1,17 @@
 import './App.css'
-import Topnavbar from "./components/Topnavbar.tsx";
-import DescAndLinks from "./components/DescAndLinks.tsx";
+import Head from "./components/Head.tsx";
+import Projects from "./components/Projects.tsx";
 
 function App() {
   return (
     <>
-        <Topnavbar />
-        <DescAndLinks />
+      <Head />
+      <h1 className="portfolio__sections">Projects</h1>
+      <Projects />
+      <h1 className="portfolio__sections">Tech Stack</h1>
+      <h1 className="portfolio__sections">About Me</h1>
+      <h1 className="portfolio__sections">Education</h1>
+
     </>
   )
 }

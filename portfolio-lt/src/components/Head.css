@@ -1,0 +1,54 @@
+.head {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.head__map {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.head__map-inner {
+    width: 100%;
+    height: 100%;
+    background: var(--light-color-1);
+}
+
+.head__intro {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.head__avatar {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    outline: 2.5px solid var(--grayed-text);
+    outline-offset: 2px;
+}
+
+.head__intro-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.head__name {
+    font-size: 2.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--prime-text);
+}
+
+.head__tagline {
+    font-size: 1.1rem;
+    color: var(--prime-text);
+}

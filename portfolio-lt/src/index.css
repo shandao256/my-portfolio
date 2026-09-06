@@ -1,22 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 :root{
-    --bg_primary: #14110f;
-    --bg-secondary: #1c1c1c;
-    --font-color: #fff;
-    --border-bottom: #231f1a
-}
-::selection{
-    color: #20a4f3;
+    --text: #EFE9E3;
+    --grayed-text: #898888;
+    --bg-primary: #FAF7F0;
+    --accent-color: #3A4BE0;
+    --dark-color: #181C14;
+    --green: #6FAF4F;
+    --prime-text: #020204;
+    --accent-2: #EC5B38;
+    --light-color-1: #F2F2F2;
+
+    --border-bottom: #E4DFD5;
 }
 
 *{
     margin: 0;
     box-sizing: border-box;
-    color: var(--font-color);
-    font-family: "Inter", sans-serif;
+    color: var(--prime-text);
+    font-family: "PP Mori", sans-serif;
 }
 
 body{
-    background-color: var(--bg_primary);
+    background-color: var(--bg-primary);
+}
 
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-Extralight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-ExtralightItalic.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-SemiboldItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('./assets/fonts/PP Mori/otf/PPMori-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
 }
