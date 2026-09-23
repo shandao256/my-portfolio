@@ -1,19 +1,21 @@
 import './App.css'
 import Head from "./components/Head.tsx";
 import Projects from "./components/Projects.tsx";
-
+import AboutMe from "./components/AboutMe.tsx";
+import TechStack from "./components/TechStack.tsx";
+import Education from "./components/Education.tsx";
 
 function App() {
   return (
     <>
       <Head />
-      <h1 className="portfolio__sections">Projects</h1>
       <Projects />
-      <h1 className="portfolio__sections">Tech Stack</h1>
-     
-      <h1 className="portfolio__sections">About Me</h1>
-      <h1 className="portfolio__sections">Education</h1>
-
+      <section className="gap"></section>
+      <AboutMe />
+      <section className="gap"></section>
+      <TechStack />
+      <section className="gap"></section>
+      <Education />
     </>
   )
 }

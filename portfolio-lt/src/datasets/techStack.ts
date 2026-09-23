@@ -1,30 +1,25 @@
-// Local SVG icons — drop the brand SVG files into src/assets/tech-icons/
-// and import them here. Using ?react (SVGR via @vitejs/plugin-react) lets
-// each icon be used as a React component: <tech.icon />
-import ReactIcon from '../assets/tech-icons/react.svg?react'
-import HtmlIcon from '../assets/tech-icons/html5.svg?react'
-import CssIcon from '../assets/tech-icons/css3.svg?react'
-import SpringIcon from '../assets/tech-icons/spring.svg?react'
-import JetpackComposeIcon from '../assets/tech-icons/jetpack-compose.svg?react'
-import VueIcon from '../assets/tech-icons/vuedotjs.svg?react'
+import ReactIcon from '../assets/tech-icons/react-original.svg'
+import HtmlIcon from '../assets/tech-icons/html5-original.svg'
+import CssIcon from '../assets/tech-icons/css3-original.svg'
+import SpringIcon from '../assets/tech-icons/spring-original.svg'
+import JetpackComposeIcon from '../assets/tech-icons/jetpackcompose-original.svg'
+import VueIcon from '../assets/tech-icons/vuejs-original.svg'
 
-import TypescriptIcon from '../assets/tech-icons/typescript.svg?react'
-import CppIcon from '../assets/tech-icons/cplusplus.svg?react'
-import JavaIcon from '../assets/tech-icons/java.svg?react'
-import KotlinIcon from '../assets/tech-icons/kotlin.svg?react'
+import TypescriptIcon from '../assets/tech-icons/typescript-original.svg'
+import CppIcon from '../assets/tech-icons/cplusplus-original.svg'
+import JavaIcon from '../assets/tech-icons/java-original.svg'
+import KotlinIcon from '../assets/tech-icons/kotlin-original.svg'
 
-import JetbrainsIcon from '../assets/tech-icons/jetbrains.svg?react'
-import ZedIcon from '../assets/tech-icons/zedindustries.svg?react'
-import GitIcon from '../assets/tech-icons/git.svg?react'
-import GitHubIcon from '../assets/tech-icons/github.svg?react'
+import JetbrainsIcon from '../assets/tech-icons/jetbrains-original.svg'
+import ZedIcon from '../assets/tech-icons/zedindustries-original.svg'
+import GitIcon from '../assets/tech-icons/git-original.svg'
+import GitHubIcon from '../assets/tech-icons/github-original.svg'
 
-import FigmaIcon from '../assets/tech-icons/figma.svg?react'
-import AffinityDesignerIcon from '../assets/tech-icons/affinitydesigner.svg?react'
+import FigmaIcon from '../assets/tech-icons/figma-original.svg'
+import AffinityDesignerIcon from '../assets/tech-icons/affinitydesigner-original.svg'
 
-import PostgresIcon from '../assets/tech-icons/postgresql.svg?react'
-import MysqlIcon from '../assets/tech-icons/mysql.svg?react'
-
-import type { FunctionComponent, SVGProps } from 'react'
+import PostgresIcon from '../assets/tech-icons/postgresql-original.svg'
+import MysqlIcon from '../assets/tech-icons/mysql-original.svg'
 
 export type TechCategory =
     | 'Web development & Frameworks'
@@ -45,7 +40,8 @@ export const techCategoryOrder: TechCategory[] = [
 export interface TechStack {
     name: string
     category: TechCategory
-    icon: FunctionComponent<SVGProps<SVGSVGElement>>
+    // URL to the icon asset (imported from an .svg file, resolved by Vite).
+    icon: string
     // Marks tech that is still being actively learned (shown with a "*" in the UI).
     learning: boolean
 }

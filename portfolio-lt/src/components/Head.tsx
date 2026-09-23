@@ -24,15 +24,14 @@ function Head() {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                 </MapContainer>
+
+                {/* TODO: hover should trigger straw-hat animation */}
+                <div className="head__avatar" aria-hidden="true" />
             </div>
 
-            <div className="head__intro">
-                {/* TODO: swap placeholder for real avatar asset; hover should trigger straw-hat animation */}
-                <div className="head__avatar" aria-hidden="true" />
-                <div className="head__intro-text">
-                    <h1 className="head__name">Hi there, I'm {aboutData.name}!</h1>
-                    <p className="head__tagline">{aboutData.tagline}</p>
-                </div>
+            <div className="head__intro-text">
+                <h1 className="head__name">Hi there, I'm {aboutData.name}!</h1>
+                <p className="head__tagline">{aboutData.tagline}</p>
             </div>
         </section>
     )

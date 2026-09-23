@@ -1,24 +1,17 @@
 import './Projects.css'
-import { projects } from '../datasets/projects.ts'
+import macbookSvg from '../assets/MacbookPro.svg'
 
+// Screen content removed for the Swiss redesign pass — MacBook renders
+// blank for now. FeralUI (or similar) content goes inside .projects-screen
+// once that's sourced; the div is already positioned and ready to hold it.
 function Projects() {
     return (
-        <section className="portfolio container">
-            <div className="projects-grid">
-                {projects.map((project) => (
-                    <a
-                        key={project.id}
-                        href={project.url ?? '#'}
-                        target={project.url ? '_blank' : undefined}
-                        rel={project.url ? 'noreferrer' : undefined}
-                        className={`project-card project-card--${project.size ?? 'standard'}`}
-                    >
-                        <div className="project-card__media" aria-hidden="true">
-                            <img src={project.image} alt="" className="project-card__image" />
-                        </div>
-                        <span className="project-card__title">{project.title}</span>
-                    </a>
-                ))}
+        <section className="portfolio">
+            <div className="projects-mac-wrap">
+                <div className="projects-mac">
+                    <img src={macbookSvg} alt="" className="projects-mac__frame" aria-hidden="true" />
+                    <div className="projects-screen" />
+                </div>
             </div>
         </section>
     )

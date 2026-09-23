@@ -1,0 +1,44 @@
+.tech-chip {
+    --tech-chip-rotate: 0deg;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-primary);
+    border: 2px solid var(--prime-text);
+    padding: 0.25rem 0.85rem;
+    transform: rotate(var(--tech-chip-rotate));
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    width: fit-content;
+
+    backface-visibility: hidden;
+}
+
+.tech-chip__icon {
+    display: block;
+    width: 1.1em;
+    height: 1.1em;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.tech-chip__name {
+    color: var(--prime-text);
+}
+
+.tech-chip__asterisk {
+    margin-left: 0.05em;
+}
+
+
+.tech-stack.is-hovering .tech-chip:not(.tech-chip--learning) {
+    opacity: 0.35;
+    transition: opacity 0.15s ease;
+}
+
+.tech-stack.is-hovering .tech-chip--learning {
+    transition: opacity 0.15s ease;
+}
