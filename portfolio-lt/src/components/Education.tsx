@@ -3,7 +3,7 @@ import { educationData } from '../datasets/dataAbout.ts'
 
 function Education() {
     return (
-        <section className="education container">
+        <section className="education container" data-reveal  >
             <h2 className="section-heading">Education</h2>
             <div className="education__list">
                 {educationData.map((entry) => (

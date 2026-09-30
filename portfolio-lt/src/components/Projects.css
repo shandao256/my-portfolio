@@ -1,36 +1,56 @@
-.portfolio {
+.projects {
+    --card-w: min(60vw, 782px);
+    padding-top: 3rem;
+    overflow-x: clip;
+    margin-top: 3rem;
+}
+
+.projects__list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 4rem;
 }
 
-
-.projects-mac-wrap {
+.project-card {
+    flex: 0 0 auto;
+    width: var(--card-w);
     display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 2rem 2rem 3rem;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
 }
 
-.projects-mac {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
+.project-card__media {
+    overflow: hidden;
+    background: var(--bg-primary);
 }
 
-.projects-mac__frame {
+.project-card__image {
     display: block;
     width: 100%;
-    height: auto;
-    pointer-events: none;
-    user-select: none;
+    aspect-ratio: 16 / 9;   
+    object-fit: cover;
+    object-position: top;
 }
 
-.projects-screen {
-    position: absolute;
-    top: 6%;
-    left: 12%;
-    width: 76%;
-    height: 68%;
-    overflow: hidden;
+.project-card__title {
+    font-size: 1.125rem;
+}
+
+.project-card__description {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: var(--grayed-text);
+}
+
+@media (max-width: 800px) {
+    .projects__grid { grid-template-columns: 1fr; }
 }

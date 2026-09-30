@@ -7,7 +7,7 @@ import windmillsImg from '../assets/images/windmills.jpg'
 
 function AboutMe() {
     return (
-        <section className="about container">
+        <section className="about container" data-reveal>
             <h2 className="section-heading">About me</h2>
             <div className="about__card">
                 <p className="about__paragraph">

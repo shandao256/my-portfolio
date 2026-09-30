@@ -5,7 +5,22 @@
     width: 100%;
 }
 
+.contact-btn--icon {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;   
+    gap: 2.5rem;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact-btn svg,
+.contact-btn svg * {
+    color: inherit;
+}
+
 
 .gap {
-    margin: 14rem 0 14rem 0;
+    height: clamp(6rem, 11vw, 12rem);
 }
+
