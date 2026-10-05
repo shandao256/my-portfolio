@@ -1,88 +1,148 @@
-:root{
-    --text: #EFE9E3;
-    --grayed-text: #898888;
-    --bg-primary: #F8F8F8;
-    --accent-color: #3A4BE0;
-    --dark-color: #040602;
-    --green: #6FAF4F;
-    --prime-text: #020204;
-    --accent-2: #EC5B38;
-    --light-color-1: #F2F2F2;
+:root {
+  /* colors (same names as Figma) */
+  --bg: #FAFAFA;
+  --accent: #E7ECEF;
+  --accent-2: #A3CEF1;
+  --accent-3: #0466C8;
+  --dark: #181C14;
+  --text: #020204;
+  --text-on-dark: #EFE9E3;
+  --text-muted: #5F6368;
+  --highlight: color-mix(in srgb, var(--bg) 64%, transparent);
 
-    --border-bottom: #E4DFD5;
+  /* type (16px = 1rem) */
+  --font-h1: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+  --font-h2: clamp(1.25rem, 0.7rem + 0.5vw, 1.5rem);
+  --font-text: 1rem;
+  --font-caption: 0.75rem;
+
+  /* spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --page-pad: clamp(1.25rem, 4vw, 4rem);
+  --space-section: clamp(6rem, 11vw, 12rem);
+
+  /* radii */
+  --radius-tag: 0.25rem;
+  --radius-control: 0.5rem;
+  --radius-card: 1rem;
+  --radius-container: 1.5rem;
+
+  /* motion */
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-*{
-    margin: 0;
-    box-sizing: border-box;
-    color: var(--prime-text);
-    font-family: "PP Mori", sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-body{
-    background-color: var(--bg-primary);
+body {
+  min-height: 100dvh;
+  font-family: 'PP Neue Montreal', system-ui, sans-serif;
+  font-size: var(--font-text);
+  line-height: 1.4;
+  color: var(--text);
+  background-color: var(--accent-2);
+  background-image: url("./assets/images/bg/Untitled blend-3840x2160.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
 }
 
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-Extralight.otf') format('opentype');
-    font-weight: 200;
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Hairline.otf') format('opentype');
+    font-weight: 100;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-ExtralightItalic.otf') format('opentype');
-    font-weight: 200;
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-HairlineItalic.otf') format('opentype');
+    font-weight: 100;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-Regular.otf') format('opentype');
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-Italic.otf') format('opentype');
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Italic.otf') format('opentype');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-Semibold.otf') format('opentype');
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Semibold.otf') format('opentype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-SemiboldItalic.otf') format('opentype');
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-SemiboldItalic.otf') format('opentype');
     font-weight: 600;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-Black.otf') format('opentype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'PP Mori';
-    src: url('./assets/fonts/PP Mori/otf/PPMori-BlackItalic.otf') format('opentype');
-    font-weight: 900;
+    font-family: 'PP Neue Montreal';
+    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-ExtraboldItalic.otf') format('opentype');
+    font-weight: 800;
     font-style: italic;
     font-display: swap;
 }

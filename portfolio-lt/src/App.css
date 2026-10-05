@@ -1,9 +1,14 @@
 .container {
-    max-width: 822px;
+    max-width: 792px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
+    width: min(100% - 2 * var(--page-pad), 47.375rem);
+    margin-inline: auto;
 }
+
+
+
 
 .contact-btn--icon {
     display: inline-flex;
@@ -14,13 +19,12 @@
     margin-top: 1rem;
 }
 
-.contact-btn svg,
-.contact-btn svg * {
-    color: inherit;
+
+section + section { margin-top: var(--space-section); }
+
+.section__title {
+  font-size: var(--font-h1);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: var(--space-6);
 }
-
-
-.gap {
-    height: clamp(6rem, 11vw, 12rem);
-}
-

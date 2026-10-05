@@ -26,15 +26,14 @@ import ProjectModal from './ProjectModal.tsx'
   
     return (
         <>
-          <section ref={sectionRef} className="projects container">
-              <div className="projects__list">
+        <section ref={sectionRef} className="projects container">
+          <h2 id="projects-title" className="section__title">My Works</h2>
+               <div className="projects__list">
                   {projects.map((project) => (
                       <button key={project.id} type="button" className="project-card" onClick={() => setSelected(project)}>
                                <div className="project-card__media">
                                    <img src={project.image} alt="" className="project-card__image" />
                                </div>
-                               <span className="project-card__title">{project.title}</span>
-                               <span className="project-card__description">{project.type}</span>
                            </button>
                        ))}
                    </div>

@@ -1,66 +1,46 @@
 import './Footer.css'
 import { aboutData } from '../datasets/dataAbout.ts'
+import { ArrowUpRightIcon } from "@phosphor-icons/react";
 
-import { useRef } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { SplitText } from 'gsap/SplitText'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+const buildDate = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'Europe/Berlin',
+}).format(new Date(__BUILD_DATE__))
 
-gsap.registerPlugin(SplitText, ScrollTrigger)
-
+const contacts = [
+    { label: aboutData.email, href: `mailto:${aboutData.email}`, external: false },
+    ...aboutData.links.map((link) => ({ label: link.label, href: link.url, external: true })),
+]
 
 function Footer() {
-  const footerRef = useRef<HTMLElement>(null)
- 
-  useGSAP(() => {
-      footerRef.current!.querySelectorAll<HTMLElement>('.split').forEach((el) => {
-          SplitText.create(el, {
-              type: 'words',
-              mask: 'words',
-              wordsClass: 'split-word',
-              autoSplit: true,
-              onSplit: (self) => {
-                  gsap.set(el, { opacity: 1 })       // the words are hidden by the tween below
-                  return gsap.from(self.words, {
-                      yPercent: 110,
-                      duration: 0.9,
-                      ease: 'power4.out',
-                      stagger: 0.06,
-                      scrollTrigger: { trigger: el, start: 'clamp(top 90%)', toggleActions: 'play none none reset' },
-                  })
-              },
-          })
-      })
-  }, { scope: footerRef })
- 
     return (
-      <footer ref={footerRef} className="footer">
-        <div className="container">
-          <h2 className="footer__title split">Let's <span className="footer__title--grayed-text">build</span> together</h2>
-            <div className="footer__inner">
-                <div className="footer__cta">
-                  <p className="footer__subtitle split">Email</p>
-                    <a href={`mailto:${aboutData.email}`} className="footer__contact split">
-                        lieltounaba@proton.me
-                    </a>
-                </div>
+        <footer className="footer container">
+            <div className="footer__cta">
+                <h2 className="footer__title">
+                    <span>Interested?</span>
+                    <span className="footer__accent">Let’s get in touch.</span>
+                </h2>
 
-                <nav className="footer__links" aria-label="Social links">
-                    {aboutData.links.map((link) => (
-                        <a
-                            key={link.label}
-                            href={link.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="footer__link split" 
-                        >
-                            {link.label}
-                        </a>
+                <ul className="footer__links">
+                    {contacts.map((contact) => (
+                        <li key={contact.href}>
+                            <a
+                                className="footer__link"
+                                href={contact.href}
+                                target={contact.external ? '_blank' : undefined}
+                                rel={contact.external ? 'noreferrer' : undefined}
+                            >
+                                {contact.label}
+                                <ArrowUpRightIcon size={24} />
+                            </a>
+                        </li>
                     ))}
-                </nav>
+                </ul>
             </div>
-          </div>
+
+            <p className="footer__updated">Last updated: {buildDate}</p>
         </footer>
     )
 }

@@ -1,69 +1,40 @@
-.techstack {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 10rem;
+/* No backgrounds on the section: the body image shows through. */
+.tech{
+    margin-top: 8em;
 }
-
-.section-heading{
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.techstack__card {
-    background: var(--light-color-1);
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;   /* stack the grid and label vertically */
-    align-items: center;      /* keep both centered horizontally */
-}
-
-.techstack__grid {
-    width: 100%;
-    margin: 1.5rem 0 0;
+.tech__groups {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0.85rem;
-    max-width: 600px;
+    gap: var(--space-4);
 }
 
-.techstack__item {
-    aspect-ratio: 1;
+/* Fixed label column so every row of tags starts on the same vertical line. */
+.tech__group {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: var(--space-4);
+    align-items: start;
+}
+
+.tech__label {
+    font-size: var(--font-h2);
+    font-weight: 500;
+    line-height: 1.3;
+    padding-block: 0.15em;
+}
+
+.tech__list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-primary);
-}
-
-.techstack__icon {
-    width: 64%;
-    height: 64%;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 0;
+    list-style: none;
 }
 
 
-.techstack__label {
-    min-height: 1.5em;
-    margin: 2.5rem 0 1.5rem;  /* space above from the grid, below before the card ends */
-    text-align: center;
-    font-size: 1.25rem;
-    opacity: 0;
-}
-
-
-.techstack__item:focus-visible {
-    outline: 2px solid var(--prime-text);
-    outline-offset: 2px;
-}
-
-
-.techstack__footnote {
-    font-size: 1.2rem;
-    text-align: right;
-}
-
-
-@media (max-width: 480px) {
-    .techstack__grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+.tech__tag {
+    padding: 0.5em 0.75em;
+    border-radius: var(--radius-card);
+    background: var(--highlight);
+    font-size: var(--font-text);
+    line-height: 1.3;
 }

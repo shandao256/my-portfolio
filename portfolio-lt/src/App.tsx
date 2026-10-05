@@ -1,7 +1,6 @@
 import './App.css'
 import Head from "./components/Head.tsx";
 import Projects from "./components/Projects.tsx";
-import AboutMe from "./components/AboutMe.tsx";
 import TechStack from "./components/TechStack.tsx";
 import Education from "./components/Education.tsx";
 import Footer from "./components/Footer.tsx";
@@ -11,7 +10,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
-import { useReveal } from './hooks/useReveal.ts'
+import { useReveal } from './datasets/hooks/useReveal.ts'
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
@@ -50,7 +49,6 @@ function App() {
             <>
               <Head />
               <Projects />
-              <AboutMe />
               <TechStack />
               <Education />
               <Footer />

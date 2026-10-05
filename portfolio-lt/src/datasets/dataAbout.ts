@@ -1,24 +1,17 @@
+
 export const aboutData = {
     name: "Lionel",
-    role: "Software Engineering Student",
-    location: "Stuttgart, DE",
-    tagline: "SWE student based in 🇩🇪",
-
-    // Approx coordinates used to center the head map (Stuttgart / Esslingen area)
-    coordinates: {
-        lat: 48.74354,
-        lng: 9.30709,
-    },
+    role: "a software engineering student",
+    location: "Esslingen, Germany",
+    tagline: "I build software that works and feels good to use.",
+    email: "lieltounaba@proton.me",
+   
     links: [
-        // { label: "LinkedIn", url: "https://www.linkedin.com/in/lionel-toussoumsnaba-2211413aa/" },
         { label: "GitHub", url: "https://github.com/shandao256" },
     ],
     teams: [
         { label: "pep.digital GmbH", url: "https://pep-digital.de/" },
-  ],
-    email: "lieltounaba@proton.me",
-
-    
+    ],
 }
 
 export interface EducationEntry {

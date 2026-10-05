@@ -1,55 +1,24 @@
-import { useRef, useState } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
 import './TechStack.css'
-import { techStack } from '../datasets/techStack.ts'
+import { skillGroups } from '../datasets/skills.ts'
 
 function TechStack() {
-    const [label, setLabel] = useState('')          // stays put while fading out
-    const [visible, setVisible] = useState(false)
-    const labelRef = useRef<HTMLParagraphElement>(null)
-
-    useGSAP(() => {
-        gsap.to(labelRef.current, {
-            opacity: visible ? 1 : 0,
-            y: visible ? 0 : 6,
-            duration: 0.15,
-            ease: 'power2.out',
-            overwrite: 'auto',
-        })
-    }, { dependencies: [visible, label] })
-
-    const show = (text: string) => {
-        setLabel(text)
-        setVisible(true)
-    }
-
     return (
-        <section className="techstack container" data-reveal>
-            <h2 className="section-heading">My Tech stack*</h2>
-            <div className="techstack__card">
-                <div
-                    className="techstack__grid"
-                    onMouseLeave={() => setVisible(false)}
-                >
-                    {techStack.map((tech) => (
-                        <div
-                            key={tech.name}
-                            className="techstack__item"
-                            tabIndex={0}
-                            onMouseEnter={() => show(tech.name)}
-                            onFocus={() => show(tech.name)}
-                            onBlur={() => setVisible(false)}
-                        >
-                            <img src={tech.icon} alt={tech.name} className="techstack__icon" />
-                        </div>
-                    ))}
-                </div>
-                <p ref={labelRef} className="techstack__label" aria-live="polite">
-                    {label}
-                </p>
-            </div>
-            <p className="techstack__footnote">*still learning</p>
+        <section className="tech container" aria-labelledby="tech-title">
+            <h2 id="tech-title" className="section__title">My tech stack</h2>
+            <dl className="tech__groups">
+                {skillGroups.map((group) => (
+                    <div key={group.label} className="tech__group">
+                        <dt className="tech__label">{group.label}</dt>
+                        <dd>
+                            <ul className="tech__list">
+                                {group.items.map((item) => (
+                                    <li key={item} className="tech__tag">{item}</li>
+                                ))}
+                            </ul>
+                        </dd>
+                    </div>
+                ))}
+            </dl>
         </section>
     )
 }
