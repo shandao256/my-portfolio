@@ -15,12 +15,11 @@
     gap: var(--space-1);
 }
 
-/* Date tag: light fill, link-blue text. */
 .education__period {
     margin-bottom: var(--space-1);
     padding: 0.25em 0.7em;
     border-radius: var(--radius-control);
-    background: var(--bg);
+    background: var(--highlight);
     color: var(--accent-3);
     font-size: var(--font-caption);
     line-height: 1.3;

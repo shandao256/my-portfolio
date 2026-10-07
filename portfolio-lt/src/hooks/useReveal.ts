@@ -22,7 +22,6 @@ export function useReveal(scope: RefObject<HTMLElement | null>, enabled = true) 
         })
       })
     })
-
     return () => mm.revert()
   }, { scope, dependencies: [enabled] })
 }

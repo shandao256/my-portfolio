@@ -46,7 +46,7 @@
 
 .footer__updated {
     font-size: var(--font-caption);
-    color: var(--text-muted);
+    color: var(--text-on-light);
 }
 
 /* 840px = 52.5em (custom properties can't be used in media queries) */

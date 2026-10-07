@@ -1,0 +1,81 @@
+.side-nav { display: none; }
+
+@media (min-width: 90em) {
+    .side-nav {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: max(1.5rem, calc(50% - var(--content-width) / 2 - var(--nav-width) - var(--space-8)));
+        width: var(--nav-width);
+        transform: translateY(-50%);
+        opacity: 1;
+        visibility: visible;
+        z-index: 10732;
+        transition:
+            opacity var(--dur-base) var(--ease-out),
+            transform var(--dur-base) var(--ease-out),
+            visibility 0s;
+    }
+
+    .side-nav[data-visible='false'] {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-0.75rem, -50%);
+        transition:
+            opacity var(--dur-base) var(--ease-out),
+            transform var(--dur-base) var(--ease-out),
+            visibility 0s linear var(--dur-base);
+    }
+}
+
+.side-nav__layer--inverted {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    visibility: hidden;
+}
+
+.side-nav[data-masked='true'] .side-nav__layer--inverted {
+    visibility: visible;
+}
+
+.side-nav__list {
+    display: grid;
+    gap: var(--space-1);
+    padding: 0;
+    list-style: none;
+}
+
+.side-nav__item {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-control);
+    text-decoration: none;
+}
+
+.side-nav__item span:first-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Base (over the light background) */
+.side-nav__layer--base .side-nav__item { color: var(--text); }
+.side-nav__layer--base .side-nav__meta { color: var(--text-muted); white-space: nowrap; }
+.side-nav__layer--base .side-nav__item:hover {
+    background: color-mix(in srgb, var(--dark) 10%, transparent);
+}
+.side-nav__layer--base .side-nav__item[aria-current='location'] {
+    background: var(--highlight);
+}
+
+/* Inverted (over the ribbon) */
+.side-nav__layer--inverted .side-nav__item { color: #fff; }
+.side-nav__layer--inverted .side-nav__meta { color: rgba(255, 255, 255, 0.75); white-space: nowrap; }
+.side-nav__layer--inverted .side-nav__item[aria-current='location'] {
+    background: rgba(255, 255, 255, 0.28);
+}

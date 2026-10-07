@@ -1,46 +1,69 @@
-import { useRef, useState } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Projects.css'
-import { projects, type Project } from '../datasets/projects.ts'
+import { useRef, useState } from 'react'
+import { projects, formatPeriodShort, type Project } from '../datasets/projects.ts'
+import { useScrollSpy } from '../hooks/useScrollSpy.ts'
+import SideNav from './SideNav.tsx'
 import ProjectModal from './ProjectModal.tsx'
-  
-  gsap.registerPlugin(ScrollTrigger)
-  
-  function Projects() {
-      const [selected, setSelected] = useState<Project | null>(null)
-      const sectionRef = useRef<HTMLElement>(null)
-  
-      useGSAP(() => {
-          gsap.utils.toArray<HTMLElement>('.project-card').forEach((card) => {
-              gsap.from(card, {
-                  opacity: 0,
-                  duration: 0.8,
-                  y: 40,
-                  ease: 'power2.out',
-                  scrollTrigger: { trigger: card, start: 'top 75%', toggleActions: 'play none none none' },
-              })
-          })
-      }, { scope: sectionRef })
-  
+
+const cardId = (projectId: string) => `project-${projectId}`
+
+const cardIds = projects.map((project) => cardId(project.id))
+const navItems = projects.map((project) => ({
+    id: cardId(project.id),
+    label: project.title,
+    meta: formatPeriodShort(project),
+}))
+
+
+function Projects() {
+    const sectionRef = useRef<HTMLElement>(null)
+    const { visible, activeId } = useScrollSpy(cardIds, sectionRef)
+  const [activeProject, setActiveProject] = useState<Project | null>(null)
+
+
     return (
-        <>
-        <section ref={sectionRef} className="projects container">
-          <h2 id="projects-title" className="section__title">My Works</h2>
-               <div className="projects__list">
-                  {projects.map((project) => (
-                      <button key={project.id} type="button" className="project-card" onClick={() => setSelected(project)}>
-                               <div className="project-card__media">
-                                   <img src={project.image} alt="" className="project-card__image" />
-                               </div>
-                           </button>
-                       ))}
-                   </div>
-              </section>
-              <ProjectModal project={selected} onClose={() => setSelected(null)} />
-          </>
-      )
-    }
-   
-   export default Projects
+        <section
+            ref={sectionRef}
+            className="projects container"
+            aria-labelledby="projects-title"
+        >
+            <h2 id="projects-title" className="section__title">My works</h2>
+
+            <SideNav
+                label="Projects"
+                items={navItems}
+                activeId={activeId}
+                visible={visible}
+            />
+
+            <ul className="projects__list">
+                {projects.map((project) => (
+                    <li key={project.id} id={cardId(project.id)} className="project-card">
+                        <button
+                            type="button"
+                            className="project-card__link"
+                            onClick={() => setActiveProject(project)}
+                        >
+                            <div className="project-card__media">
+                                <img className="project-card__image" src={project.image} alt="" />
+                            </div>
+
+                            <div className="project-card__caption">
+                                <h3 className="project-card__title">{project.title}</h3>
+                                <span className="project-card__date">{formatPeriodShort(project)}</span>
+                                <p className="project-card__summary">{project.summary}</p>
+                            </div>
+                        </button>
+                    </li>
+                ))}
+            </ul>
+
+            <ProjectModal
+                project={activeProject}
+                onClose={() => setActiveProject(null)}
+            />
+        </section>
+    )
+}
+
+export default Projects

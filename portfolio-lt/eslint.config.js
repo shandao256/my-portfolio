@@ -15,6 +15,7 @@ export default defineConfig([
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
+    ignores: ["src/components/PathBlend.jsx"],
     languageOptions: {
       globals: globals.browser,
     },

@@ -8,7 +8,7 @@
   --text: #020204;
   --text-on-dark: #EFE9E3;
   --text-muted: #5F6368;
-  --highlight: color-mix(in srgb, var(--bg) 64%, transparent);
+  --highlight: color-mix(in srgb, var(--dark) 10%, transparent);
 
   /* type (16px = 1rem) */
   --font-h1: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
@@ -36,6 +36,10 @@
   --dur-fast: 150ms;
   --dur-base: 300ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --nav-width: 17.5rem;      /* width of the side list */
+  --content-width: 72rem;    /* content box of .container, WITHOUT its horizontal padding */
+
 }
 
 *,
@@ -51,12 +55,9 @@ body {
   font-size: var(--font-text);
   line-height: 1.4;
   color: var(--text);
-  background-color: var(--accent-2);
-  background-image: url("./assets/images/bg/Untitled blend-3840x2160.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
 }
+
+
 
 button, input, textarea, select {
   font: inherit;

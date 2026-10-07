@@ -1,59 +1,84 @@
-.projects {
-    --card-w: min(60vw, 782px);
+.projects{
     padding-top: 3rem;
     overflow-x: clip;
     margin-top: 3rem;
 }
-
 .projects__list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4rem;
-}
-
-#projects-title {
- margin-bottom: 3rem;   
+    display: grid;
+    gap: var(--space-8);
+    padding: 0;
+    list-style: none;
 }
 
 .project-card {
-    flex: 0 0 auto;
-    width: var(--card-w);
-    display: flex;
-    max-width: 100%;
-    flex-direction: column;
-    gap: 0.75rem;
+    position: relative;
+    scroll-margin-top: var(--space-12);
+}
+
+.project-card__link {
+    display: grid;
+    gap: var(--space-4);
+    color: inherit;
     text-decoration: none;
-    text-align: left;
+    width: 100%;
     background: none;
     border: none;
     padding: 0;
+    margin: 0;
     font: inherit;
+    text-align: left;
     cursor: pointer;
 }
 
+
 .project-card__media {
     overflow: hidden;
-    background: var(--bg-primary);
 }
 
 .project-card__image {
-    display: block;
-    width: 100%;   
+    width: 100%;
     object-fit: cover;
-    object-position: top;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.project-card__caption {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: var(--space-4);
+    row-gap: var(--space-1);
 }
 
 .project-card__title {
-    font-size: 1.125rem;
+    font-size: var(--font-h2);
+    font-weight: var(--weight-base);
+    line-height: 1.2;
 }
 
-.project-card__description {
-    font-size: 0.875rem;
-    line-height: 1rem;
-    color: var(--grayed-text);
+.project-card__date {
+    color: var(--text-muted);
+    white-space: nowrap;
 }
 
-@media (max-width: 800px) {
-    .projects__grid { grid-template-columns: 1fr; }
+.project-card__summary {
+    grid-column: 1 / -1;
+}
+
+
+@media (min-width: 90em) {
+    .project-card__caption {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card__link:hover .project-card__image {
+        transform: none;
+    }
 }

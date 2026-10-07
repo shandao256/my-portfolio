@@ -49,7 +49,7 @@ function ProjectModal({ project, onClose }: Props) {
                         </div>
 
                         <div className="project-modal__details">
-                            <p className="project-modal__description">{project.description}</p>
+                            <p className="project-modal__description">{project.summary}</p>
 
                             <div className="project-modal__meta">
                                 <MetaColumn label="Role" items={project.role} />
@@ -58,12 +58,12 @@ function ProjectModal({ project, onClose }: Props) {
                                     items={project.teams.map((t) => t.label)}
                                     links={project.teams.map((t) => t.url)}
                                 />
-                                <MetaColumn label="Duration" items={project.duration ? [project.duration] : []} />
+                                <MetaColumn label="Duration" items={project.start ? [project.start] : []} />
                                 <MetaColumn label="Tools" items={project.tools} />
                                 <MetaColumn label="Stack" items={project.stack} />
                 </div>
-                {project.url && (
-                  <a href={project.url} target="_blank" rel="noreferrer" className="contact-btn contact-btn--icon">
+                {project.link?.url && (
+                  <a href={project.link?.url} target="_blank" rel="noreferrer" className="contact-btn contact-btn--icon">
                       View on GitHub
                       <span
                           className="btn-arrow"

@@ -5,22 +5,23 @@ import ventoryGoImg from '../assets/images/VentoryGoEditor.png'
 export interface Project {
     id: string
     title: string
-    summary: string            
-    type: string              
-    image: string              
+    summary: string            // one line shown on the card
+    type: string               // e.g. "Android Application", shown under the popup title
+    image: string              // card image
     imageAlt: string
-    detailImage?: string       
-    about: string             
-    myRole: string            
+    detailImage?: string       // popup image, falls back to `image`
+    about: string              // left half of the popup: what it is and why
+    myRole: string             // right half of the popup: what I did
     role: string[]
     teams: { label: string; url?: string }[]
-    start: string              
-    end?: string              
-    tools: string[]            
+    start: string              // 'YYYY-MM'
+    end?: string               // 'YYYY-MM'; omitted = still ongoing ("today")
+    tools: string[]            // hide the column in the popup when empty
     stack: string[]
-    link?: { label: string; url: string }   
+    link?: { label: string; url: string }   // omit when there is no public link
 }
 
+// Array order = display order (newest first), used by the left list and the cards.
 export const projects: Project[] = [
     {
         id: 'ventory-go',
@@ -92,6 +93,7 @@ export const projects: Project[] = [
     },
 ]
 
+// 'YYYY-MM' -> "Mar 2026". timeZone is pinned to UTC so a date can never shift a month.
 const monthFormat = new Intl.DateTimeFormat('en-US', {
     month: 'short',
     year: 'numeric',
@@ -102,7 +104,20 @@ function formatMonth(yearMonth: string): string {
     return monthFormat.format(new Date(`${yearMonth}-01T00:00:00Z`))
 }
 
-// "Mar 2026 – Jun 2026" or "Jul 2026 – today"
+// "Mar 2026 – Jun 2026" or "Jul 2026 – today"  (popup)
 export function formatPeriod(project: Pick<Project, 'start' | 'end'>): string {
     return `${formatMonth(project.start)} – ${project.end ? formatMonth(project.end) : 'today'}`
+}
+
+const monthOnlyFormat = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' })
+
+// "Mar – Jun 2026" when both dates share a year, otherwise same as formatPeriod  (list and cards)
+export function formatPeriodShort(project: Pick<Project, 'start' | 'end'>): string {
+    if (!project.end) return formatPeriod(project)
+
+    const sameYear = project.start.slice(0, 4) === project.end.slice(0, 4)
+    if (!sameYear) return formatPeriod(project)
+
+    const startMonth = monthOnlyFormat.format(new Date(`${project.start}-01T00:00:00Z`))
+    return `${startMonth} – ${formatMonth(project.end)}`
 }

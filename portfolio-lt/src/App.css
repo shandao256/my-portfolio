@@ -1,14 +1,8 @@
 .container {
-    max-width: 792px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    width: 100%;
+    padding-inline: var(--container-padding);
     width: min(100% - 2 * var(--page-pad), 47.375rem);
     margin-inline: auto;
 }
-
-
-
 
 .contact-btn--icon {
     display: inline-flex;
@@ -27,4 +21,38 @@ section + section { margin-top: var(--space-section); }
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: var(--space-6);
+}
+
+
+#smooth-wrapper,
+#smooth-content {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+#smooth-wrapper {
+   overflow-x: clip;
+}
+
+#smooth-content {
+  overflow-x: visible;
+  position: relative;
+}
+
+.parallax-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140vh;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+
+.content-layer {
+  position: relative;
+  z-index: 2;
 }
