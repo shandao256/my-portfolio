@@ -1,4 +1,21 @@
 .idea/
 .zed/
+**/node_modules/
+**/dist/
+**/build/
+**/.cache/e
+target/
+*.lock
 
-node_modules/
+.next/
+.nuxt/
+.astro/
+.cache/
+.turbo/
+.parcel-cache/
+out/
+coverage/
+
+package-lock.json
+pnpm-lock.yaml
+bun.lockb

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import type { Project } from '../datasets/projects.ts'
 import './ProjectModal.css'
+import { XIcon } from '@phosphor-icons/react'
 
 import type { CSSProperties } from 'react'
 import arrowUpRight from '../assets/arrow-up-right.svg'
@@ -34,8 +35,8 @@ function ProjectModal({ project, onClose }: Props) {
         >
             {project && (
                 <div className="project-modal__inner">
-                    <button className="project-modal__close" onClick={() => dialogRef.current?.close()}>
-                        Close
+                  <button className="project-modal__close" onClick={() => dialogRef.current?.close()}>
+                    <XIcon size={32} />
                     </button>
 
                     <div className="project-modal__media">
