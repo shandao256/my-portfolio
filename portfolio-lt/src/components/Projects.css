@@ -3,8 +3,10 @@
     overflow-x: clip;
     margin-top: 3rem;
 }
+
 .projects__list {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-8);
     padding: 0;
     list-style: none;
@@ -80,5 +82,16 @@
 @media (prefers-reduced-motion: reduce) {
     .project-card__link:hover .project-card__image {
         transform: none;
+    }
+}
+
+@media (max-width: 40em) {
+    .project-card__caption {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card__date {
+        white-space: normal;
+        font-size: 0.875rem;
     }
 }

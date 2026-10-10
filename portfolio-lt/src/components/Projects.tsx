@@ -1,23 +1,12 @@
 import './Projects.css'
 import { useRef, useState } from 'react'
 import { projects, formatPeriodShort, type Project } from '../datasets/projects.ts'
-import { useScrollSpy } from '../hooks/useScrollSpy.ts'
-import SideNav from './SideNav.tsx'
 import ProjectModal from './ProjectModal.tsx'
 
 const cardId = (projectId: string) => `project-${projectId}`
 
-const cardIds = projects.map((project) => cardId(project.id))
-const navItems = projects.map((project) => ({
-    id: cardId(project.id),
-    label: project.title,
-    meta: formatPeriodShort(project),
-}))
-
-
 function Projects() {
     const sectionRef = useRef<HTMLElement>(null)
-    const { visible, activeId } = useScrollSpy(cardIds, sectionRef)
   const [activeProject, setActiveProject] = useState<Project | null>(null)
 
 
@@ -26,15 +15,9 @@ function Projects() {
             ref={sectionRef}
             className="projects container"
             aria-labelledby="projects-title"
+            data-reveal
         >
             <h2 id="projects-title" className="section__title">My works</h2>
-
-            <SideNav
-                label="Projects"
-                items={navItems}
-                activeId={activeId}
-                visible={visible}
-            />
 
             <ul className="projects__list">
                 {projects.map((project) => (

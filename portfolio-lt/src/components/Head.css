@@ -38,3 +38,13 @@
 .head__highlight {
     color: var(--accent-3);   
 }
+
+
+@media (max-width: 40em) {
+    .head__role, .head__tagline { font-size: var(--font-h2-mobile);}
+    .head__about {font-size: var(--font-text)}
+    .head__tagline {
+            text-wrap: pretty;
+        }
+	
+}

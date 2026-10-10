@@ -16,6 +16,13 @@
   --font-text: 1rem;
   --font-caption: 0.75rem;
 
+  --font-h1-desktop: 2.25rem;   
+  --font-h1-mobile: 1.75rem;    
+  --font-h2-desktop: 1.5rem;  
+  --font-h2-mobile: 1.25rem;   
+  --font-text: 1rem;            
+  --font-caption: 0.75rem;      
+
   /* spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -40,6 +47,13 @@
   --nav-width: 17.5rem;      /* width of the side list */
   --content-width: 72rem;    /* content box of .container, WITHOUT its horizontal padding */
 
+}
+
+@media (max-width: 40em) {
+    :root {
+        --font-h1: var(--font-h1-mobile);
+        --font-h2: var(--font-h2-mobile);
+    }
 }
 
 *,

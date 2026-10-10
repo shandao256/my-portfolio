@@ -16,12 +16,12 @@ export function useReveal(scope: RefObject<HTMLElement | null>, enabled = true) 
         gsap.from(el, {
           opacity: 0,
           y: 40,
-          duration: 0.4,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' },
+          duration: 0.75,
+          ease: 'power4.out',
+          scrollTrigger: { trigger: el, start: 'top 74%', toggleActions: 'play none none none' },
         })
       })
-    })
+    })  
     return () => mm.revert()
   }, { scope, dependencies: [enabled] })
 }
