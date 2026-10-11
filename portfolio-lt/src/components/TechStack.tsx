@@ -3,7 +3,7 @@ import { skillGroups } from '../datasets/skills.ts'
 
 function TechStack() {
     return (
-        <section className="tech container" aria-labelledby="tech-title" data-reveal>
+        <section className="tech container" aria-labelledby="tech-title">
             <h2 id="tech-title" className="section__title">My tech stack</h2>
             <dl className="tech__groups">
                 {skillGroups.map((group) => (

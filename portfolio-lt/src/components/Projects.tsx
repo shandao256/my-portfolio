@@ -15,7 +15,6 @@ function Projects() {
             ref={sectionRef}
             className="projects container"
             aria-labelledby="projects-title"
-            data-reveal
         >
             <h2 id="projects-title" className="section__title">My works</h2>
 

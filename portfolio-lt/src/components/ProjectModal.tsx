@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { XIcon, ArrowUpRightIcon } from '@phosphor-icons/react'
 import { formatPeriod, type Project } from '../datasets/projects.ts'
 import './ProjectModal.css'
@@ -17,13 +16,7 @@ function ProjectModal({ project: openProject, onClose }: Props) {
     
   useEffect(() => {
       const dialog = dialogRef.current!
-      if (openProject && !dialog.open) {
-          dialog.showModal()
-          ScrollSmoother.get()?.paused(true)
-      }
-      return () => {
-          ScrollSmoother.get()?.paused(false)
-      }
+      if (openProject && !dialog.open) dialog.showModal()
   }, [openProject])
 
     return (

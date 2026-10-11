@@ -1,68 +1,93 @@
-// App.tsx
 import './App.css'
+import { useEffect, useRef } from 'react'
 import Head from './components/Head.tsx'
+import ViewNav from './components/ViewNav.tsx'
 import Projects from './components/Projects.tsx'
 import TechStack from './components/TechStack.tsx'
 import Education from './components/Education.tsx'
+import Contact from './components/Contact.tsx'
 import Footer from './components/Footer.tsx'
-import { useReveal } from './hooks/useReveal.ts'
+import { useView, VIEW_LABELS } from './hooks/useView.ts'
 
-import { useState, useEffect, useRef } from 'react'
+gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
+
+
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 
-if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
-gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother)
-
 function App() {
-  const contentRef = useRef<HTMLDivElement>(null)
-  const [ready, setReady] = useState(false)
+  const view = useView()
+  const panelRef = useRef<HTMLDivElement>(null)
+  const previousView = useRef(view)
+  const showHead = view !== 'projects'
 
   useGSAP(() => {
-    ScrollSmoother.create({
-      wrapper: '#smooth-wrapper',
-      content: '#smooth-content',
-      smooth: 0.8,
-      effects: true,
-    });
-    
-    setReady(true)
-  }, [])
+     ScrollSmoother.create({
+       wrapper: '#smooth-wrapper',
+       content: '#smooth-content',
+       smooth: 0.6,
+       effects: true,
+     })
+   }, [])
 
-
-  useReveal(contentRef, ready)
 
   useEffect(() => {
-    if (!ready) return
-    const refresh = () => ScrollTrigger.refresh()
-    refresh()
-    document.fonts.ready.then(refresh)
-    window.addEventListener('load', refresh)
-    return () => window.removeEventListener('load', refresh)
-  }, [ready])
+    document.title = view === 'about' ? 'Lionel T.' : `${VIEW_LABELS[view]} · Lionel T.`
+
+    if (previousView.current === view) return
+    previousView.current = view
+
+    if (view === 'projects') {
+      window.scrollTo(0, 0)
+    } else {
+      const nav = document.getElementById('view-nav')
+      if (nav && nav.getBoundingClientRect().top < 0) nav.scrollIntoView()
+    }
+
+    const panel = panelRef.current
+    if (!panel) return
+    panel.focus({ preventScroll: true })
+
+    const mm = gsap.matchMedia()
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.fromTo(
+        panel,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', clearProps: 'all' },
+      )
+    })
+    return () => mm.revert()
+  }, [view])
 
   return (
     <>
       <div id="smooth-wrapper">
-        <div id="smooth-content" ref={contentRef} className="smooth-content-container">
-          <div 
-            className="parallax-canvas-container" 
-            data-speed="0.6"
-            aria-hidden="true"
+        <div id="smooth-content">
+          {showHead && <Head />}
+          <ViewNav view={view} standalone={!showHead} />
+
+          <div
+            key={view}
+            ref={panelRef}
+            className="view-panel"
+            tabIndex={-1}
+            role="region"
+            aria-label={VIEW_LABELS[view]}
           >
+            {view === 'about' && (
+              <>
+                <TechStack />
+                <Education />
+
+              </>
+            )}
+            {view === 'projects' && <Projects />}
+            {view === 'contact' && <Contact />}
           </div>
 
-          {ready && (
-            <div className="content-layer">
-              <Head />
-              <Projects />
-              <TechStack />
-              <Education />
-              <Footer />
-            </div>
-          )}
+          <Footer />
         </div>
       </div>
     </>

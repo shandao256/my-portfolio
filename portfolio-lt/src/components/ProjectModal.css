@@ -189,3 +189,10 @@
     .project-modal__media { flex: none; aspect-ratio: 4 / 3; }
     .project-modal__cta { margin-top: 0; }
 }
+
+
+@media (max-width: 40em){
+    .project-modal__cta {
+         width: 100%;
+    }
+}

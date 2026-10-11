@@ -3,7 +3,7 @@ import { educationData } from '../datasets/dataAbout.ts'
 
 function Education() {
     return (
-        <section className="education container" aria-labelledby="education-title" data-reveal >
+        <section className="education container" aria-labelledby="education-title">
             <h2 id="education-title" className="section__title">Education</h2>
             <ol className="education__list">
                 {educationData.map((entry) => (

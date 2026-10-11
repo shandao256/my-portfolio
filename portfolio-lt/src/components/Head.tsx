@@ -3,7 +3,7 @@ import { aboutData } from '../datasets/dataAbout.ts'
 
 function Head() {
     return (
-        <header className="head container" data-reveal>
+        <header className="head container">
             <h1 className="head__title">Hey there, I’m {aboutData.name}.</h1>
             <p className="head__role">
                 {aboutData.role} in {aboutData.location}
@@ -20,7 +20,7 @@ function Head() {
                     <span className="head__highlight">public transport</span> and{' '}
                     <span className="head__highlight">renewable energy</span>, and I’ll
                     gladly talk about cars.
-                </p>
+          </p>
             </div>
         </header>
     )
