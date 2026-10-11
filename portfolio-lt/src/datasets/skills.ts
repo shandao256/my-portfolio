@@ -7,7 +7,7 @@ export interface SkillGroup {
 // wouldn't want to be asked about in an interview.
 export const skillGroups: SkillGroup[] = [
     { label: 'Languages', items: ['TypeScript', 'Java', 'C++', 'Kotlin'] },
-    { label: 'Frontend', items: ['React', 'Vue', 'HTML', 'CSS'] },
+    { label: 'Frontend & Frameworks', items: ['React', 'Vue', 'HTML', 'CSS'] },
     { label: 'Backend & Data', items: ['Spring', 'PostgreSQL', 'MySQL'] },
     {
         label: 'Tools',

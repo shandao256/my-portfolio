@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 import Head from './components/Head.tsx'
 import ViewNav from './components/ViewNav.tsx'
 import Projects from './components/Projects.tsx'
+import About from './components/About.tsx'
 import TechStack from './components/TechStack.tsx'
 import Education from './components/Education.tsx'
 import Contact from './components/Contact.tsx'
@@ -78,9 +79,9 @@ function App() {
           >
             {view === 'about' && (
               <>
+                <About />
                 <TechStack />
                 <Education />
-
               </>
             )}
             {view === 'projects' && <Projects />}

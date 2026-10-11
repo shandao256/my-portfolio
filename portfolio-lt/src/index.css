@@ -66,10 +66,11 @@ html { scrollbar-gutter: stable; }
 
 body {
   min-height: 100dvh;
-  font-family: 'PP Neue Montreal', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
   font-size: var(--font-text);
   line-height: 1.4;
   color: var(--text);
+  
 }
 
 body:has(dialog[open]) { overflow: hidden; }
@@ -83,82 +84,75 @@ img, svg, video {
   display: block;
   max-width: 100%;
 }
+
+/* Regular */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Hairline.otf') format('opentype');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Regular Italic */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-HairlineItalic.otf') format('opentype');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
+/* Medium */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Light.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Medium Italic */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-LightItalic.otf') format('opentype');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 
+/* SemiBold */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* SemiBold Italic */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Italic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
 }
 
+/* Bold */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Medium.otf') format('opentype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Bold Italic */
 @font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-Semibold.otf') format('opentype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-SemiboldItalic.otf') format('opentype');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'PP Neue Montreal';
-    src: url('./assets/fonts/Neue Montreal/otf/PPNeueMontreal-ExtraboldItalic.otf') format('opentype');
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }

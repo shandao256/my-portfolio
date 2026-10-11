@@ -18,10 +18,9 @@ export interface Project {
     end?: string               // 'YYYY-MM'; omitted = still ongoing ("today")
     tools: string[]            // hide the column in the popup when empty
     stack: string[]
-    link?: { label: string; url: string }   // omit when there is no public link
+    link?: { label: string; url: string }   
 }
 
-// Array order = display order (newest first), used by the left list and the cards.
 export const projects: Project[] = [
     {
         id: 'ventory-go',
@@ -93,7 +92,6 @@ export const projects: Project[] = [
     },
 ]
 
-// 'YYYY-MM' -> "Mar 2026". timeZone is pinned to UTC so a date can never shift a month.
 const monthFormat = new Intl.DateTimeFormat('en-US', {
     month: 'short',
     year: 'numeric',
@@ -104,14 +102,12 @@ function formatMonth(yearMonth: string): string {
     return monthFormat.format(new Date(`${yearMonth}-01T00:00:00Z`))
 }
 
-// "Mar 2026 – Jun 2026" or "Jul 2026 – today"  (popup)
 export function formatPeriod(project: Pick<Project, 'start' | 'end'>): string {
     return `${formatMonth(project.start)} – ${project.end ? formatMonth(project.end) : 'today'}`
 }
 
 const monthOnlyFormat = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' })
 
-// "Mar – Jun 2026" when both dates share a year, otherwise same as formatPeriod  (list and cards)
 export function formatPeriodShort(project: Pick<Project, 'start' | 'end'>): string {
     if (!project.end) return formatPeriod(project)
 

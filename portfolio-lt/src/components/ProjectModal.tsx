@@ -23,7 +23,7 @@ function ProjectModal({ project: openProject, onClose }: Props) {
       <dialog
           ref={dialogRef}
           className="project-modal"
-          onClose={onClose} // fires on Esc and on .close()
+          onClose={onClose} 
           onClick={(e) => {
               if (e.target === dialogRef.current) dialogRef.current.close()
           }}

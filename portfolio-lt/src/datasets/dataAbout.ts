@@ -30,12 +30,5 @@ export const educationData: EducationEntry[] = [
         title: "Software Engineering",
         institution: "Hochschule Esslingen, Esslingen am Neckar",
         description: "Currently in the 5th Semester. Projected graduation @ February 2028.",
-    },
-    {
-        id: "high-school",
-        dateRange: "Sep 2021 - Jul 2024",
-        title: "High School Student",
-        institution: "Gewerbliche Schule, Göppingen",
-        description: "Completed with a high school diploma focused on Environmental Science",
-    },
+    }
 ]

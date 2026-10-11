@@ -9,10 +9,8 @@
 
 .education__entry {
     display: grid;
-    grid-template-columns: 8.5rem 1fr; /* same column as .tech__group */
-    gap: var(--space-4);
+    grid-template-columns: 8.5rem 1fr; 
     padding-block: var(--space-6);
-    border-top: 1px solid color-mix(in srgb, var(--dark) 20%, transparent);
 }
 
 .education__list li:last-child {

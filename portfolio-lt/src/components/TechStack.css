@@ -2,17 +2,12 @@
     margin-top: 8em;
 }
 
-.tech__groups {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-4);
-}
 
 .tech__group {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
-    padding: var(--space-6);
+    gap: var(--space-2);
+    padding: var(--space-4) 0;
 }
 
 .tech__label {
@@ -30,13 +25,7 @@
 }
 
 .tech__tag {
-    padding: 0.5em 0.75em;
-    border-radius: var(--radius-card);
-    background: var(--highlight);
-    font-size: var(--font-text);
     color: var(--text-muted);
-    line-height: 1.3;
-    white-space: nowrap;
 }
 
 @media (max-width: 40em) {
