@@ -1,25 +1,18 @@
 :root {
   /* colors (same names as Figma) */
   --bg: #FAFAFA;
-  --accent: #E7ECEF;
-  --accent-2: #A3CEF1;
   --accent-3: #0466C8;
   --dark: #181C14;
   --text: #020204;
   --text-on-dark: #EFE9E3;
-  --text-muted: #5F6368;
+  --text-muted: #787B7D;
   --highlight: color-mix(in srgb, var(--dark) 6%, transparent);
 
   /* type (16px = 1rem) */
-  --font-h1: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
-  --font-h2: clamp(1.25rem, 0.7rem + 0.5vw, 1.5rem);
-  --font-text: 1rem;
-  --font-caption: 0.75rem;
-
-  --font-h1-desktop: 2.25rem;   
+  --font-h1: 2.0rem;   
   --font-h1-mobile: 1.75rem;    
-  --font-h2-desktop: 1.5rem;  
-  --font-h2-mobile: 1.25rem;   
+  --font-h2: 1.25rem;  
+  --font-h2-mobile: 1.1rem;   
   --font-text: 1rem;            
   --font-caption: 0.75rem;      
 

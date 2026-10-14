@@ -1,22 +1,31 @@
 import './Education.css'
+import { CaretRightIcon } from '@phosphor-icons/react'
 import { educationData } from '../datasets/dataAbout.ts'
 
 function Education() {
     return (
         <section className="education container" aria-labelledby="education-title">
             <h2 id="education-title" className="section__title">Education</h2>
-            <ol className="education__list">
-                {educationData.map((entry) => (
-                  <li key={entry.id} className="education__entry">
-                      <span className="education__period">{entry.dateRange}</span>
-                      <div className="education__body">
-                          <h3 className="education__title">{entry.title}</h3>
-                          <p className="education__institution">{entry.institution}</p>
-                          <p className="education__note">{entry.description}</p>
-                      </div>
-                  </li>
+            <ul className="timeline">
+                {educationData.map((entry, i) => (
+                    <li key={entry.id}>
+                      <details className="timeline__item" open={i === 0}>
+                          <summary className="timeline__summary">
+                              <CaretRightIcon className="timeline__chevron" size={16} aria-hidden="true" />
+                              <span className="timeline__heading">
+                          <strong>{entry.title}</strong>{' '}
+                                  <span className="timeline__org">{entry.institution}</span>
+                              </span>
+                              <span className="timeline__date">{entry.dateRange}</span>
+                          </summary>
+                      
+                          <div className="timeline__body">
+                              <p>{entry.description}</p>
+                          </div>
+                      </details>
+                    </li>
                 ))}
-            </ol>
+            </ul>
         </section>
     )
 }

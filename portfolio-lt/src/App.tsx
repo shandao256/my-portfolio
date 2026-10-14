@@ -6,7 +6,6 @@ import Projects from './components/Projects.tsx'
 import About from './components/About.tsx'
 import TechStack from './components/TechStack.tsx'
 import Education from './components/Education.tsx'
-import Contact from './components/Contact.tsx'
 import Footer from './components/Footer.tsx'
 import { useView, VIEW_LABELS } from './hooks/useView.ts'
 
@@ -85,9 +84,7 @@ function App() {
               </>
             )}
             {view === 'projects' && <Projects />}
-            {view === 'contact' && <Contact />}
           </div>
-
           <Footer />
         </div>
       </div>

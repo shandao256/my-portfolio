@@ -9,7 +9,7 @@ const buildDate = new Intl.DateTimeFormat('en-US', {
 
 function Footer() {
     return (
-        <footer className="footer container">
+      <footer className="footer container">
             <p className="footer__updated">Last updated: {buildDate}</p>
         </footer>
     )

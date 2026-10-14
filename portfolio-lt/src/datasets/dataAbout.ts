@@ -18,7 +18,8 @@ export interface EducationEntry {
     id: string
     dateRange: string
     title: string
-    institution: string
+  institution: string
+  location: string
     institutionUrl?: string
     description: string
 }
@@ -28,7 +29,8 @@ export const educationData: EducationEntry[] = [
         id: "software-engineering",
         dateRange: "Since Sep 2024",
         title: "Software Engineering",
-        institution: "Hochschule Esslingen, Esslingen am Neckar",
+        institution: "Hochschule Esslingen",
+        location: "Esslingen am Neckar",
         description: "Currently in the 5th Semester. Projected graduation @ February 2028.",
     }
 ]

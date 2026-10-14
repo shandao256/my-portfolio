@@ -16,6 +16,8 @@ target/
 out/
 coverage/
 
+.claude/
+
 package-lock.json
 pnpm-lock.yaml
 bun.lockb

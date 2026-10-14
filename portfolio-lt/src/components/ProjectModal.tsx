@@ -13,7 +13,7 @@ function ProjectModal({ project: openProject, onClose }: Props) {
 
   const [project, setProject] = useState(openProject)
   if (openProject && openProject !== project) setProject(openProject)
-    
+
   useEffect(() => {
       const dialog = dialogRef.current!
       if (openProject && !dialog.open) dialog.showModal()
@@ -23,77 +23,64 @@ function ProjectModal({ project: openProject, onClose }: Props) {
       <dialog
           ref={dialogRef}
           className="project-modal"
-          onClose={onClose} 
+          onClose={onClose}
           onClick={(e) => {
               if (e.target === dialogRef.current) dialogRef.current.close()
           }}
           aria-labelledby="project-modal-title"
       >
-            {project && (
-                <div className="project-modal__inner">
-                    <div className="project-modal__bar">
-                        <button
-                            type="button"
-                            className="project-modal__close"
-                            onClick={() => dialogRef.current?.close()}
-                            aria-label="Close project"
-                        >
-                            <XIcon size={32} />
-                        </button>
-                    </div>
-
-                    <div className="project-modal__layout">
-                        <div className="project-modal__left">
-                            <header>
-                                <p className="project-modal__date">{formatPeriod(project)}</p>
-                                <h2 id="project-modal-title" className="project-modal__title">
-                                    {project.title}
-                                </h2>
-                            </header>
-
-                            <div className="project-modal__media">
-                                <img src={project.detailImage ?? project.image} alt={project.imageAlt} />
-                            </div>
-                        </div>
-
-                        <div className="project-modal__right">
-                            <div className="project-modal__text">
-                                <div>
-                                    <h3 className="project-modal__label">About</h3>
-                                    <p>{project.about}</p>
-                                </div>
-                                <div>
-                                    <h3 className="project-modal__label">My role</h3>
-                                    <p>{project.myRole}</p>
-                                </div>
-                            </div>
-
-                            <div className="project-modal__meta">
-                                <MetaColumn label="Role" items={project.role} />
-                                <MetaColumn
-                                    label="Teams"
-                                    items={project.teams.map((t) => t.label)}
-                                    links={project.teams.map((t) => t.url)}
-                                />
-                                <MetaColumn label="Tools" items={project.tools} />
-                                <MetaColumn label="Stack" items={project.stack} />
-                            </div>
-
-                            {project.link?.url && (
-                                <a
-                                    href={project.link.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="project-modal__cta"
-                                >
-                                    {project.link.label}
-                                    <ArrowUpRightIcon size={20} aria-hidden="true" />
-                                </a>
-                            )}
-                        </div>
-                    </div>
+        {project && (
+            <div className="project-modal__inner">
+                <div className="project-modal__bar">
+                    <button
+                        type="button"
+                        className="project-modal__close"
+                        onClick={() => dialogRef.current?.close()}
+                        aria-label="Close project"
+                    >
+                        <XIcon size={24} />
+                    </button>
                 </div>
-            )}
+
+                <div className="project-modal__cover">
+                    <img src={project.detailImage ?? project.image} alt={project.imageAlt} />
+                </div>
+
+                <article className="project-modal__content">
+                    <header className="project-modal__header">
+                        <p className="project-modal__date">{formatPeriod(project)}</p>
+                        <h2 id="project-modal-title" className="project-modal__title">
+                            {project.title}
+                        </h2>
+                        <p className="project-modal__type">{project.type}</p>
+                    </header>
+
+                    <section>
+                        <h3 className="project-modal__label">About</h3>
+                          <p>{project.about}</p> <br></br>
+                          <p>{project.myRole}</p>
+                    </section>
+
+                    <div className="project-modal__meta">
+                        <MetaColumn label="Role" items={project.role} />
+                        <MetaColumn
+                            label="Teams"
+                            items={project.teams.map((t) => t.label)}
+                            links={project.teams.map((t) => t.url)}
+                        />
+                        <MetaColumn label="Tools" items={project.tools} />
+                        <MetaColumn label="Stack" items={project.stack} />
+                    </div>
+
+                    {project.link?.url && (
+                        <a href={project.link.url} target="_blank" rel="noreferrer" className="project-modal__cta">
+                            {project.link.label}
+                            <ArrowUpRightIcon size={20} aria-hidden="true" />
+                        </a>
+                    )}
+                </article>
+            </div>
+        )}
         </dialog>
     )
 }

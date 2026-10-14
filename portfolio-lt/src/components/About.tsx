@@ -13,7 +13,6 @@ function About() {
 
   return (   
       <section className="about container" aria-labelledby="about-title">
-        <h2 id="about-title" className="section__title"></h2>
         <div ref={textRef} onPointerMove={onPointerMove} className="about__text">
           <p>
             The project I’m proudest of is ActivityTracker, an Android app we built as

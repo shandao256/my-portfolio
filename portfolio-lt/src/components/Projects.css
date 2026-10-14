@@ -1,96 +1,83 @@
-.projects{
-    overflow-x: clip;
-
-}
-
-.projects__list {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-8);
+.bento {
+    width: 80vw;
+    height: 80dvh;
+    min-height: 36rem;
+    margin-inline: auto;
     padding: 0;
     list-style: none;
-}
-
-.project-card {
-    position: relative;
-    scroll-margin-top: var(--space-12);
-}
-
-.project-card__link {
     display: grid;
     gap: var(--space-4);
-    color: inherit;
-    text-decoration: none;
+}
+
+@media (min-width: 56em) {
+    .bento {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            'activity-tracker ventory-go'
+            'activity-tracker aircraft-viewer';
+    }
+
+    .bento__item[data-project='activity-tracker'] { grid-area: activity-tracker; }
+    .bento__item[data-project='ventory-go']       { grid-area: ventory-go; }
+    .bento__item[data-project='aircraft-viewer']  { grid-area: aircraft-viewer; }
+}
+
+.bento__item { min-height: 0; }
+
+.bento__tile {
+    position: relative;
+    display: block;
     width: 100%;
-    background: none;
-    border: none;
+    height: 100%;
     padding: 0;
-    margin: 0;
-    font: inherit;
+    border: 0;
+    border-radius: var(--radius-card);
+    background: var(--bg);
+    color: var(--bg);
     text-align: left;
+    overflow: hidden;
     cursor: pointer;
 }
 
-
-.project-card__media {
-    overflow: hidden;
+.bento__tile:focus-visible {
+    outline: 2px solid var(--accent-3);
+    outline-offset: 4px;
 }
 
-.project-card__image {
+.bento__image {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform var(--dur-base) var(--ease-out);
 }
 
-.project-card__caption {
+
+.bento__caption {
+    position: absolute;
+    inset: auto 0 0 0;
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: baseline;
-    column-gap: var(--space-4);
-    row-gap: var(--space-1);
+    gap: var(--space-1);
+    padding: var(--space-12) var(--space-6) var(--space-6);
+    background: linear-gradient(to top, rgb(0 0 0 / 0.5), transparent);
 }
 
-.project-card__title {
+.bento__title {
     font-size: var(--font-h2);
-    font-weight: var(--weight-base);
+    font-weight: 500;
     line-height: 1.2;
 }
 
-.project-card__date {
-    color: var(--text-muted);
-    white-space: nowrap;
+.bento__summary {
+    font-size: var(--font-text);
+    opacity: 0.8;
 }
 
-.project-card__summary {
-    grid-column: 1 / -1;
-}
-
-
-@media (min-width: 90em) {
-    .project-card__caption {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .project-card__link:hover .project-card__image {
-        transform: none;
-    }
-}
-
-@media (max-width: 40em) {
-    .project-card__caption {
-        grid-template-columns: 1fr;
+@media (max-width: 56em) {
+    .bento {
+        width: calc(100% - 2 * var(--page-pad));
+        height: auto;
+        min-height: 0;
     }
 
-    .project-card__date {
-        white-space: normal;
-        font-size: 0.875rem;
-    }
+    .bento__item { aspect-ratio: 4 / 5; }
 }

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 
-export const views = ['about', 'projects', 'contact'] as const
+export const views = ['about', 'projects'] as const
 export type View = (typeof views)[number]
 
 export const VIEW_LABELS: Record<View, string> = {
     about: 'About',
-    projects: 'Projects',
-    contact: 'Contact',
+    projects: 'Explore',
 }
+
+
 
 function readView(): View {
     const name = window.location.hash.slice(1).split('/')[0]
