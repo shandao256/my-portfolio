@@ -1,7 +1,16 @@
 .footer {
     padding-top: var(--space-12);
     padding-bottom: var(--space-8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
+
+.footer__name{
+    font-size: var(--font-caption);
+}
+
 
 .footer__updated {
     font-size: var(--font-caption);

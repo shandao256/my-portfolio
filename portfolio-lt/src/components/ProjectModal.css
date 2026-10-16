@@ -35,7 +35,6 @@
     width: 2.75rem;
     height: 2.75rem;
     border: 0;
-    border-radius: var(--radius-control);
     background: color-mix(in srgb, var(--bg) 80%, transparent);
     backdrop-filter: blur(8px);
     cursor: pointer;
@@ -48,15 +47,12 @@
     outline-offset: 2px;
 }
 
-.project-modal__cover {
-    height: clamp(28rem, 64dvh, 52rem);
-    background: var(--accent);
-}
 
 .project-modal__cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-fit: center;
 }
 
 /* The centered column: this is the part that defines "the center" */
@@ -70,8 +66,7 @@
 
 .project-modal__header { display: grid; gap: var(--space-1); }
 
-.project-modal__date,
-.project-modal__type { color: var(--text-muted); }
+.project-modal__date { color: var(--text-muted); }
 
 .project-modal__title {
     font-size: clamp(2rem, 1.2rem + 2.5vw, 3rem);
@@ -83,10 +78,15 @@
  margin-top: var(--space-2);}
 
 .project-modal__label {
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
     font-size: var(--font-h2);
     font-weight: 500;
 }
+
+.project-modal__paragraph{
+    margin-bottom: var(--space-4);
+}
+
 
 
 
@@ -113,7 +113,6 @@
     align-items: center;
     gap: var(--space-6);
     padding: 0.875rem 1.25rem;
-    border-radius: var(--radius-control);
     background: var(--dark);
     color: var(--text-on-dark);
     text-decoration: none;
@@ -122,3 +121,12 @@
 
 .project-modal__cta:hover,
 .project-modal__cta:focus-visible { background: var(--accent-3); }
+
+
+
+@media (max-width: 40em) {
+    .project-modal__cover {
+        height: auto;
+        aspect-ratio: 2778 / 1284;
+    }
+}

@@ -8,6 +8,13 @@ interface Props {
     onClose: () => void
 }
 
+const caseSections = (p: Project) => [
+    { label: 'Problem', text: p.problem },
+    { label: 'Approach', text: p.approach },
+    { label: 'Result', text: p.result },
+]
+
+
 function ProjectModal({ project: openProject, onClose }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
@@ -43,7 +50,7 @@ function ProjectModal({ project: openProject, onClose }: Props) {
                 </div>
 
                 <div className="project-modal__cover">
-                    <img src={project.detailImage ?? project.image} alt={project.imageAlt} />
+                    <img className="project-modal__media" src={project.detailImage ?? project.image} alt={project.imageAlt} />
                 </div>
 
                 <article className="project-modal__content">
@@ -52,13 +59,17 @@ function ProjectModal({ project: openProject, onClose }: Props) {
                         <h2 id="project-modal-title" className="project-modal__title">
                             {project.title}
                         </h2>
-                        <p className="project-modal__type">{project.type}</p>
                     </header>
 
                     <section>
-                        <h3 className="project-modal__label">About</h3>
-                          <p>{project.about}</p> <br></br>
-                          <p>{project.myRole}</p>
+                        <div className="project-modal__text">
+                            {caseSections(project).map(({ label, text }) => (
+                                <div key={label}>
+                                    <h3 className="project-modal__label">{label}</h3>
+                                    <p className="project-modal__paragraph">{text}</p>
+                                </div>
+                            ))}
+                        </div>
                     </section>
 
                     <div className="project-modal__meta">

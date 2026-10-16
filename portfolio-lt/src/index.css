@@ -1,6 +1,7 @@
 :root {
   /* colors (same names as Figma) */
-  --bg: #FAFAFA;
+  --bg: oklch(96.7% 0.001 286.375);
+  --light: #FCFCFC;
   --accent-3: #0466C8;
   --dark: #181C14;
   --text: #020204;
@@ -63,6 +64,7 @@ body {
   font-size: var(--font-text);
   line-height: 1.4;
   color: var(--text);
+  background-color: var(--bg);
   
 }
 

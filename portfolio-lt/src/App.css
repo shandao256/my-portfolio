@@ -1,6 +1,6 @@
 .container {
     padding-inline: var(--container-padding);
-    width: min(100% - 2 * var(--page-pad), 47.375rem);
+    width: min(100% - 2 * var(--page-pad), 64rem);
     margin-inline: auto;
 }
 
@@ -17,7 +17,7 @@
 section + section { margin-top: var(--space-section); }
 
 .section__title {
-  font-size: var(--font-h2);
+  font-size: var(--font-h2);    
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: var(--space-6);

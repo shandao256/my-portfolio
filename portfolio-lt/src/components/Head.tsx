@@ -10,40 +10,37 @@ const contacts = [
 function Head() {
     return (
       <header className="head container">
-        <div className="head__container">
-            <h1 className="head__title">Hey there, I’m {aboutData.name}.</h1>
-            <ul className="head__contacts">
-                {contacts.map((contact) => (
-                    <li key={contact.href}>
-                        <a
-                            className="head__contact-link"
-                            href={contact.href}
-                            target={contact.external ? '_blank' : undefined}
-                            rel={contact.external ? 'noreferrer' : undefined}
-                        >
-                            {contact.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-                  </div>
-            <p className="head__role">
-                {aboutData.role} in {aboutData.location}
-            </p>
+        <h1 className="head__title">{aboutData.name} — <span className="head__role">{aboutData.role} based in {aboutData.location}</span>
+        </h1>
             <p className="head__tagline">{aboutData.tagline}</p>
 
             <div className="head__about">
                 <p>
-                    I’m drawn to software that makes everyday things simpler: getting
-                    around, saving energy, getting through the day.
+                  I design the frontend and build in TypeScript, with Java, Kotlin and Spring on the backend.
+                  Studying at <span className="highlight__education">Esslingen University of Applied Sciences</span>,
+                  graduating February 2028.
                 </p>
-                <p>
-                    Outside of code, I care about{' '}
-                    <span className="head__highlight">public transport</span> and{' '}
-                    <span className="head__highlight">renewable energy</span>, and I’ll
-                    gladly talk about cars.
+          <br />
+          <p>
+            I like software that makes everyday things simpler.
+            Outside of code I care about public transport and renewable energy, and I’ll gladly talk about cars.
           </p>
-            </div>
+        </div>
+
+        <ul className="head__contacts">
+            {contacts.map((contact) => (
+                <li key={contact.href}>
+                    <a
+                        className="head__contact-link"
+                        href={contact.href}
+                        target={contact.external ? '_blank' : undefined}
+                        rel={contact.external ? 'noreferrer' : undefined}
+                    >
+                        {contact.label}
+                    </a>
+                </li>
+            ))}
+        </ul>
         </header>
     )
 }

@@ -1,7 +1,7 @@
 
 export const aboutData = {
     name: "Lionel",
-    role: "a software engineering student",
+    role: "SWE student",
     location: "Esslingen, Germany",
     tagline: "I build software that works and feels good to use.",
     email: "lieltounaba@proton.me",
