@@ -1,5 +1,4 @@
 :root {
-  /* colors (same names as Figma) */
   --bg: oklch(96.7% 0.001 286.375);
   --light: #FCFCFC;
   --accent-3: #0466C8;
@@ -8,7 +7,7 @@
   --text-on-dark: #EFE9E3;
   --text-muted: #787B7D;
   --highlight: color-mix(in srgb, var(--dark) 6%, transparent);
-
+  
   /* type (16px = 1rem) */
   --font-h1: 2.0rem;   
   --font-h1-mobile: 1.75rem;    
@@ -27,19 +26,14 @@
   --page-pad: clamp(1.25rem, 4vw, 4rem);
   --space-section: clamp(6rem, 11vw, 12rem);
 
-  /* radii */
-  --radius-tag: 0.25rem;
-  --radius-control: 0.5rem;
-  --radius-card: 1rem;
-  --radius-container: 1.5rem;
 
   /* motion */
   --dur-fast: 150ms;
   --dur-base: 300ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --nav-width: 17.5rem;      /* width of the side list */
-  --content-width: 72rem;    /* content box of .container, WITHOUT its horizontal padding */
+  --nav-width: 17.5rem;     
+  --content-width: 72rem;   
 
 }
 
@@ -56,7 +50,9 @@
   box-sizing: border-box;
   margin: 0;
 }
-html { scrollbar-gutter: stable; }
+
+
+html { scrollbar-gutter: stable;}
 
 body {
   min-height: 100dvh;
@@ -112,42 +108,6 @@ img, svg, video {
   font-family: 'Instrument Sans';
   src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-MediumItalic.ttf') format('truetype');
   font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* SemiBold */
-@font-face {
-  font-family: 'Instrument Sans';
-  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* SemiBold Italic */
-@font-face {
-  font-family: 'Instrument Sans';
-  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Bold */
-@font-face {
-  font-family: 'Instrument Sans';
-  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Bold Italic */
-@font-face {
-  font-family: 'Instrument Sans';
-  src: url('./assets/fonts/Instrument Sans/ttf/InstrumentSans-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
   font-style: italic;
   font-display: swap;
 }

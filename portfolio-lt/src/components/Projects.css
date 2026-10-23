@@ -48,7 +48,6 @@
     display: block;
     min-height: 0;
     overflow: hidden;
-    background: var(--accent);
 }
 
 .bento__image {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { XIcon, ArrowUpRightIcon } from '@phosphor-icons/react'
 import { formatPeriod, type Project } from '../datasets/projects.ts'
 import './ProjectModal.css'
@@ -26,14 +26,36 @@ function ProjectModal({ project: openProject, onClose }: Props) {
       if (openProject && !dialog.open) dialog.showModal()
   }, [openProject])
 
+  const requestClose = useCallback(() => {
+      const dialog = dialogRef.current
+      if (!dialog?.open || dialog.classList.contains('is-closing')) return
+  
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          dialog.close()
+          return
+      }
+  
+      dialog.classList.add('is-closing')
+  
+      const finish = () => {
+          dialog.removeEventListener('transitionend', onEnd)
+          clearTimeout(fallback)
+          dialog.classList.remove('is-closing')
+          dialog.close()
+      }
+      const onEnd = (e: TransitionEvent) => {
+          if (e.target === dialog && e.propertyName === 'opacity') finish()
+      }
+      const fallback = setTimeout(finish, 500)
+      dialog.addEventListener('transitionend', onEnd)
+  }, [])
+
     return (
       <dialog
           ref={dialogRef}
           className="project-modal"
           onClose={onClose}
-          onClick={(e) => {
-              if (e.target === dialogRef.current) dialogRef.current.close()
-          }}
+          onCancel={(e) => { e.preventDefault(); requestClose() }}
           aria-labelledby="project-modal-title"
       >
         {project && (
@@ -42,7 +64,7 @@ function ProjectModal({ project: openProject, onClose }: Props) {
                     <button
                         type="button"
                         className="project-modal__close"
-                        onClick={() => dialogRef.current?.close()}
+                        onClick={requestClose}
                         aria-label="Close project"
                     >
                         <XIcon size={24} />

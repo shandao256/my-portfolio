@@ -3,7 +3,7 @@
 **/node_modules/
 **/dist/
 **/build/
-**/.cache/e
+**/.cache/
 target/
 *.lock
 
@@ -18,6 +18,5 @@ coverage/
 
 .claude/
 
-package-lock.json
 pnpm-lock.yaml
 bun.lockb

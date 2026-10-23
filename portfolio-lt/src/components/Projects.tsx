@@ -1,13 +1,33 @@
   import './Projects.css'
-  import { useState } from 'react'
+  import { useRef, useState } from 'react'
   import { projects, type Project } from '../datasets/projects.ts'
   import ProjectModal from './ProjectModal.tsx'
-  
+
+  import gsap from 'gsap'
+  import { useGSAP } from '@gsap/react'
+
+
   function Projects() {
-      const [activeProject, setActiveProject] = useState<Project | null>(null)
-  
+    const [activeProject, setActiveProject] = useState<Project | null>(null)
+    const sectionRef = useRef<HTMLElement>(null)
+
+    useGSAP(() => {
+        const mm = gsap.matchMedia()
+        mm.add('(prefers-reduced-motion: no-preference)', () => {
+            gsap.from('.bento__item', {
+                opacity: 0,
+                y: 24,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.12,
+                delay: 0.4,
+                clearProps: 'opacity,transform',
+            })
+        })
+    }, { scope: sectionRef })
+
       return (
-          <section className="projects" aria-label="Projects">
+        <section ref={sectionRef} className="projects" aria-label="Projects">
               <ul className="bento">
                   {projects.map((project) => (
                       <li
@@ -21,7 +41,7 @@
                               className="bento__tile"
                               onClick={() => setActiveProject(project)}
                       >
-                       
+
                             <span className="bento__media">
                                 <img className="bento__image" src={project.image} alt="" />
                         </span>
@@ -33,10 +53,10 @@
                       </li>
                   ))}
               </ul>
-  
+
               <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
           </section>
       )
   }
-  
+
   export default Projects

@@ -1,6 +1,11 @@
 import './Head.css'
 import { aboutData } from '../datasets/dataAbout.ts'
 
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+
 const contacts = [
     { label: aboutData.email, href: `mailto:${aboutData.email}`, external: false },
     ...aboutData.links.map((link) => ({ label: link.label, href: link.url, external: true })),
@@ -8,8 +13,24 @@ const contacts = [
 
 
 function Head() {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+      const mm = gsap.matchMedia()
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+          gsap.from('.head > *', {
+              opacity: 0,
+              y: 24,
+              duration: 0.8,
+              ease: 'power3.out',
+              stagger: 0.08,
+          })
+      })
+  }, { scope: ref })
+
+  
     return (
-      <header className="head container">
+      <header ref={ref} className="head container">
         <h1 className="head__title">{aboutData.name} — <span className="head__role">{aboutData.role} based in {aboutData.location}</span>
         </h1>
             <p className="head__tagline">{aboutData.tagline}</p>

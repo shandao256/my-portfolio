@@ -2,15 +2,6 @@
     padding-top: 20vh;
 }
 
-.head__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline; 
-    flex-wrap: wrap;     
-    gap: var(--space-4) var(--space-8);
-    margin-bottom: var(--space-8);
-}
-
 .head__contacts {
     display: flex;
     flex-wrap: wrap;
@@ -41,7 +32,6 @@
 .highlight__education{
     background-color: var(--highlight);
     padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-control);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
@@ -71,9 +61,6 @@
     text-wrap: pretty;
 }
 
-.head__highlight {
-    color: var(--accent-3);   
-}
 
 
 @media (max-width: 40em) {

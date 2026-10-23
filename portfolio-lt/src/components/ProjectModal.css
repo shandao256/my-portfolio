@@ -3,21 +3,36 @@
     width: 100vw;
     height: 100dvh;
     max-width: none;
-    max-height: none;   /* your 94dvh left a gap at the bottom */
+    max-height: none;   
     padding: 0;
     border: 0;
     background-color: var(--bg);
     color: var(--text);
     overflow-y: auto;
-    overscroll-behavior: contain;
+    overscroll-behavior: contain;     
+    opacity: 0;
+    transition:
+        opacity var(--dur-base) var(--ease-out);
+    }
+
+.project-modal[open] {
+    opacity: 1;
 }
 
+.project-modal[open].is-closing {
+    opacity: 0;
+}
+
+@starting-style {
+    .project-modal[open] {
+        opacity: 0;
+    }
+}
 .project-modal__inner {
     min-height: 100%;
         padding-bottom: var(--space-section);
 }
 
-/* Close button: sticks to the top while scrolling and floats over the cover */
 .project-modal__bar {
     position: sticky;
     top: 0;
@@ -52,10 +67,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-fit: center;
 }
 
-/* The centered column: this is the part that defines "the center" */
 .project-modal__content {
     width: min(100% - 2 * var(--page-pad), 44rem);
     margin-inline: auto;
