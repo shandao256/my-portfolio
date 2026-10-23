@@ -10,8 +10,9 @@ const buildDate = new Intl.DateTimeFormat('en-US', {
 function Footer() {
     return (
       <footer className="footer container">
-            <p className="footer__name">© Lionel Toussoumsnaba</p>
-            <p className="footer__updated">Last updated: {buildDate}</p>
+          <p className="footer__name">© Lionel Toussoumsnaba</p>
+          <a className="footer__link" href="/privacy">Privacy</a>
+          <p className="footer__updated">Last updated: {buildDate}</p>
         </footer>
     )
 }

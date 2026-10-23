@@ -16,3 +16,8 @@
     font-size: var(--font-caption);
     color: var(--text-on-light);
 }
+
+.footer__link {
+    font-size: var(--font-caption);
+    color: var(--text);
+}
