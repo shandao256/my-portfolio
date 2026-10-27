@@ -38,7 +38,7 @@ export const projects: Project[] = [
             'A self-hosted invoicing tool, shipped as a Docker container. A form for details, payment method, currency and line items sits next to a live preview of the invoice.',
         role: ['Design', 'Frontend Development', 'Code Review'],
         teams: [{ label: 'Mirac61 (Go backend)', url: 'https://github.com/Mirac61/' }],
-        start: '2026-07',
+        start: '2026-08',
         tools: ['Figma', 'Zed'],
         stack: ['React', 'TypeScript', 'Go', 'PostgreSQL', 'Docker'],
         link: { label: 'View on GitHub', url: 'https://github.com/Mirac61/VentoryGo' },
