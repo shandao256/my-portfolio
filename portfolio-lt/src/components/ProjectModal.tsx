@@ -126,7 +126,7 @@ function MetaColumn({ label, items, links }: { label: string; items: string[]; l
             <ul>
                 {items.map((item, i) => (
                     <li key={item}>
-                        {links?.[i] ? <a href={links[i]} target="_blank" rel="noreferrer">{item}</a> : item}
+                        {links?.[i] ? <a href={links[i]} target="_blank" rel="noreferrer" className="project-modal__meta-list">{item}</a> : item}
                     </li>
                 ))}
             </ul>

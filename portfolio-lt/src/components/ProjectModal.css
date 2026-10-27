@@ -54,6 +54,7 @@
     backdrop-filter: blur(8px);
     cursor: pointer;
     transition: background-color var(--dur-fast) var(--ease-out);
+    border-radius: 40em;
 }
 
 .project-modal__close:hover { background: var(--bg); }
@@ -83,7 +84,7 @@
 
 .project-modal__title {
     font-size: clamp(2rem, 1.2rem + 2.5vw, 3rem);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.1;
 }
 
@@ -93,13 +94,18 @@
 .project-modal__label {
     margin-bottom: var(--space-2);
     font-size: var(--font-h2);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .project-modal__paragraph{
     margin-bottom: var(--space-4);
+    font-weight: 300;
 }
 
+.project-modal__text{
+    display: grid;
+    gap: var(--space-4);
+}
 
 
 
@@ -120,6 +126,7 @@
 
 .project-modal__meta-col a { text-decoration: none; }
 
+
 .project-modal__cta {
     justify-self: start;
     display: inline-flex;
@@ -130,6 +137,7 @@
     color: var(--text-on-dark);
     text-decoration: none;
     transition: background-color var(--dur-base) var(--ease-out);
+    border-radius: 0.75em;
 }
 
 .project-modal__cta:hover,
