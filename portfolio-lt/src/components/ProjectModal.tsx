@@ -108,7 +108,7 @@ function ProjectModal({ project: openProject, onClose }: Props) {
                     {project.link?.url && (
                         <a href={project.link.url} target="_blank" rel="noreferrer" className="project-modal__cta">
                             {project.link.label}
-                            <ArrowUpRightIcon size={20} aria-hidden="true" />
+                            <ArrowUpRightIcon size={24} aria-hidden="true" />
                         </a>
                     )}
                 </article>

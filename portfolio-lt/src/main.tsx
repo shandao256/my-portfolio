@@ -5,6 +5,9 @@ import './App.css'
 import App from './App.tsx'
 import Privacy from './components/Datenschutz.tsx'
 
+import './assets/fonts/Nacelle/nacelle.css'
+
+
 const path = window.location.pathname.replace(/\/$/, '')
 
 createRoot(document.getElementById('root')!).render(
