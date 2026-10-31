@@ -67,8 +67,6 @@ jobs:
 
   deploy:
     needs: check
-    # Runs only on pushes to main, and only once you flip the switch:
-    # repo -> Settings -> Secrets and variables -> Actions -> Variables -> DEPLOY_ENABLED = true
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     concurrency:
@@ -77,6 +75,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: portfolio-lt/package.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Download build output
         uses: actions/download-artifact@v4
