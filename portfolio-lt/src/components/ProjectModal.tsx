@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { XIcon, ArrowUpRightIcon } from '@phosphor-icons/react'
 import { formatPeriod, type Project } from '../datasets/projects.ts'
+import Button from './unified/Button.tsx'
 import './ProjectModal.css'
+
 
 interface Props {
     project: Project | null
@@ -61,16 +63,14 @@ function ProjectModal({ project: openProject, onClose }: Props) {
         {project && (
             <div className="project-modal__inner">
                 <div className="project-modal__bar">
-                    <button
-                        type="button"
-                        className="project-modal__close"
-                        onClick={requestClose}
-                        aria-label="Close project"
-                    >
-                        <XIcon size={24} />
-                    </button>
+                  <Button
+                      variant="icon"
+                      className="project-modal__close"
+                      onClick={() => dialogRef.current?.close()}
+                      aria-label="Close"
+                      icon={<XIcon size={24} />}
+                  />
                 </div>
-
                 <div className="project-modal__cover">
                     <img className="project-modal__media" src={project.detailImage ?? project.image} alt={project.imageAlt} />
                 </div>
@@ -106,10 +106,13 @@ function ProjectModal({ project: openProject, onClose }: Props) {
                     </div>
 
                     {project.link?.url && (
-                        <a href={project.link.url} target="_blank" rel="noreferrer" className="project-modal__cta">
-                            {project.link.label}
-                            <ArrowUpRightIcon size={24} aria-hidden="true" />
-                        </a>
+                      <Button
+                              href={project.link.url}
+                              icon={<ArrowUpRightIcon size={24} aria-hidden="true" />}
+                              className="project-modal__cta"
+                          >
+                              {project.link.label}
+                          </Button>
                     )}
                 </article>
             </div>

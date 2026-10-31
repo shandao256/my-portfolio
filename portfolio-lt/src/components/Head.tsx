@@ -1,5 +1,6 @@
 import './Head.css'
 import { aboutData } from '../datasets/dataAbout.ts'
+import Button from './unified/Button.tsx'
 
 import { useRef } from 'react'
 import gsap from 'gsap'
@@ -50,16 +51,9 @@ function Head() {
 
         <ul className="head__contacts">
             {contacts.map((contact) => (
-                <li key={contact.href}>
-                    <a
-                        className="head__contact-link"
-                        href={contact.href}
-                        target={contact.external ? '_blank' : undefined}
-                        rel={contact.external ? 'noreferrer' : undefined}
-                    >
-                        {contact.label}
-                    </a>
-                </li>
+              <li key={contact.href}>
+                  <Button href={contact.href} variant="text">{contact.label}</Button>
+              </li>
             ))}
         </ul>
         </header>
