@@ -1,0 +1,70 @@
+.btn {
+    /* size tokens (md is the default); variants read these */
+    --btn-pad: 0.875rem 1.5rem;
+    --btn-gap: var(--space-6);
+    --btn-font: inherit;
+    --btn-box: 2.75rem;
+
+    display: inline-flex;
+    align-items: center;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: var(--full-round);
+}
+
+.btn[data-size='sm'] {
+    --btn-pad: var(--space-2) 1.25rem;
+    --btn-gap: var(--space-4);
+    --btn-font: 0.875rem;
+    --btn-box: 2rem;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent-3);
+    outline-offset: 2px;
+}
+
+/* Dark filled call to action (was .project-modal__cta) */
+.btn[data-variant='solid'] {
+    gap: var(--btn-gap);
+    padding: var(--btn-pad);
+    font-size: var(--btn-font);
+    background: var(--dark);
+    color: var(--text-on-dark);
+    transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.btn[data-variant='solid']:hover,
+.btn[data-variant='solid']:focus-visible {
+    background: var(--light);
+    color: var(--dark);
+}
+
+/* Inline link-style (was .head__contact-link) */
+.btn[data-variant='text'] {
+    gap: var(--space-2);
+    font-size: var(--btn-font);
+    color: var(--accent-3);
+}
+
+.btn[data-variant='text']:hover {
+    text-decoration: underline;
+}
+
+/* Square icon-only (was .project-modal__close) */
+.btn[data-variant='icon'] {
+    justify-content: center;
+    width: var(--btn-box);
+    height: var(--btn-box);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(8px);
+    transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.btn[data-variant='icon']:hover {
+    background: var(--bg);
+}
