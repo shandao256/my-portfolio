@@ -36,7 +36,11 @@
     color: inherit;
     font: inherit;
     text-align: left;
-    cursor: pointer;
+    cursor: pointer; 
+    border-radius: var(--tiles);
+    overflow: hidden;
+    isolation: isolate;
+   
 }
 
 .bento__tile:focus-visible {    
@@ -81,7 +85,8 @@
     }
 
     .bento__tile { height: auto; }
-    .bento__media { aspect-ratio: 4 / 3; }
+    .bento__media { aspect-ratio: auto; }
+    .bento__image { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

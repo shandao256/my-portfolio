@@ -35,6 +35,11 @@
   --nav-width: 17.5rem;     
   --content-width: 72rem;   
 
+
+  --radius-tag: 0.25rem;
+  --radius-control: 0.5rem;
+  --tiles: 1rem;
+  --full-round: 50rem;
 }
 
 @media (max-width: 40em) {
