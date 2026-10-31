@@ -20,33 +20,37 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: portfolio-lt/package.json
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: portfolio-lt/package-lock.json
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: portfolio-lt/pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
-      # `npm run build` runs `tsc -b` and then `vite build`,
+      # `pnpm run build` runs `tsc -b` and then `vite build`,
       # so this covers type checking and the production bundle.
       - name: Type check and build
-        run: npm run build
+        run: pnpm run build
 
       # When Vitest is set up and a "test" script exists in package.json:
       # - name: Unit tests
-      #   run: npm test -- --run
+      #   run: pnpm test --run
 
       # When Playwright is set up (add a "test:e2e" script):
       # - name: Install Playwright browsers
-      #   run: npx playwright install --with-deps chromium
+      #   run: pnpm exec playwright install --with-deps chromium
       # - name: E2E tests
-      #   run: npm run test:e2e
+      #   run: pnpm run test:e2e
       # - uses: actions/upload-artifact@v4
       #   if: failure()
       #   with:
@@ -86,5 +90,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: portfolio-lt
-          wranglerVersion: "4"
+          packageManager: pnpm
           command: deploy
